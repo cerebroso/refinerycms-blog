@@ -20,8 +20,6 @@ module Refinery
       def show
         @comment = Comment.new
 
-        @canonical = url_for(:locale => ::Refinery::I18n.default_frontend_locale) if canonical?
-        
         @post.increment!(:access_count, 1)
 
         respond_with (@post) do |format|
